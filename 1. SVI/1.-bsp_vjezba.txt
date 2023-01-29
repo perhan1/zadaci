@@ -1,0 +1,33 @@
+import pyBSP
+
+#max, rekurzivno, postorderr
+# Nova klasa proširena pyNizLista - koja nasljeđuje sve od osnovne strukture
+class prosirenaBSCvor (pyBSP.BSP):     
+    def UmetniMaxRPo(self, korijen):
+        maxCvor = self.maxCvor(korijen)
+        noviMaxCvor = maxCvor.element + 1
+        self.umetniRekurzivno(korijen, noviMaxCvor)
+        print("Postorder ispis: \n")
+        self.postorder(korijen)
+
+print("12. Umetni maksimalni element")
+case 12:
+            Stablo.UmetniMaxRPo(Stablo.korijen)
+
+U mainu: import zadatakw ,  Stablo = zadatakw.prosirenaBSCvor()
+----------------------------------------------------------------------------------------
+#min, iterativno, inorder
+# Nova klasa proširena pyNizLista - koja nasljeđuje sve od osnovne strukture
+class prosirenaBSCvor (pyBSP.BSP):
+
+    def UmetniMinIIn(self, korijen):   
+        minCvor = self.minCvor(korijen)
+        noviMinCvor = minCvor.element + 1
+        self.umetniIterativno(korijen, noviMinCvor)
+        print("Inorder ispis: \n")
+        self.inorder(korijen)    
+print("12. Umetni minimalni element")
+case 12:
+            Stablo.UmetniMinRPo(Stablo.korijen)
+
+U mainu: import zadatakw ,  Stablo = zadatakw.prosirenaBSCvor()

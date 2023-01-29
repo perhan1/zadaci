@@ -1,0 +1,92 @@
+# Faktorijel novounesenog tekuceg elementa
+    def tekuciFaktorijel(self, x):
+        if x <= 1:
+            return 1
+        else: 
+            return (x*self.tekuciFaktorijel(x-1))
+    
+print("13. Ispisi faktorijel novounesenog elementa na tekucu poziciju")
+
+case 13:
+            x = input("Dodaj element na tekuću poziciju!\n")
+            Lista.dodaj(int(x))
+            print("Faktorijel tekućeg elementa je: \n")
+            print(Lista.tekuciFaktorijel(int(x)))
+
+
+----------------------------------------------------------------------------------------------------------------------------
+# kvadrat faktorijela novounesenog tekuceg elemente i ispisuje ga
+    def KVtekuciFaktorijel(self, x):
+        if self.tekuciFaktorijel(x)== 1:
+            return 1
+        else:
+            y = pow(self.tekuciFaktorijel(x),2)
+            return y
+
+print("14. Ispisi kvadrat faktorijela novounesenog elementa na tekucu poziciju")
+
+case 14:
+            x = input("Dodaj element na tekuću poziciju!\n")
+            Lista.dodaj(int(x))
+            print("Kvadrat faktorijela tekućeg elementa je: \n")
+            print(Lista.KVtekuciFaktorijel(int(x)))
+
+---------------------------------------------------------------------------------------------------------------
+    # Izmjena pozicije elemenata
+    def zamijeniti(self, i , j):
+        priv = self.Niz[i]
+        self.Niz[i] = self.Niz[j]
+        self.Niz[j] = priv
+
+-------------------------------------------------------------------------------------------------------------------
+    # Ispis permutacija elemenata
+    def IspisiPermutacije(self, k ):
+        if k == self.duzina - 1:
+            self.prikazi()
+        else:
+            for i in range(k,self.duzina):
+                self.zamijeniti(k,i)
+                self.IspisiPermutacije(k+1)
+                self.zamijeniti(k,i)
+
+print("11. Ispis permutacija")
+
+case 11:
+            Lista.IspisiPermutacije(0)
+
+-------------------------------------------------------------------------------------------------------------------
+    # Ispis permutacije elementa od pozicije k do pozicije m
+    def IspisiPermutacijeKdoM(self, k, m ):
+        if k == m:
+            self.prikazi()
+        else:
+            for i in range(k,m):
+                self.zamijeniti(k,i)
+                self.IspisiPermutacijeKdoM(k+1,m)
+                self.zamijeniti(k,i)
+
+
+print("12. Ispis permutacija k do m")
+
+case 12:
+            k = input("Unesite n: \n")
+            m = input("Unesite k: \n")
+            print("Permutacije: \n")
+            Lista.IspisiPermutacijeKdoM(int(k),int(m)) 
+
+--------------------------------------------------------------------------------------------------------------------
+import pyNizListe					  
+class pyRekurzivneNizLista(pyNizListe.NizLista):          
+    def zamijeniti(self, i , j):			 
+        priv = self.Niz[i]				  
+        self.Niz[i] = self.Niz[j]			  
+        self.Niz[j] = priv	
+
+------------------------------------------------------------------------------------------------------------------
+ 	def suma(self, i):
+		if(i==0):
+	     return 0
+		else:
+	return int(i+self.suma(i-1))
+	
+

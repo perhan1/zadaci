@@ -1,0 +1,216 @@
+import pySortiranja
+import pyNizListe
+import random
+import time
+
+# Nova proširena pyGomila struktura
+class prosirenoSortiranjeNizListe(pySortiranja.pySortiranjeNizListe):
+    
+    def modificiraniShellSort(self):
+        start_time = time.time()
+                
+        ListaRazmaka = []                    
+        r = self.duzina                      
+        while True:                                  
+            r = int(r/3)
+            if(r) < 1:
+                break
+            ListaRazmaka.append(r)           
+        ListaRazmaka.append(1)            
+
+        print("Lista razmaka:")            
+        print(*ListaRazmaka)
+
+
+       # --- Standardni shell sort ---
+        for i in range(0,len(ListaRazmaka)):  # Uzima razmak iz list. Potrebno je korigovari 
+            h = ListaRazmaka[i]            
+            for j in range(h, self.duzina):   # Selection sort grupe
+                privremeni = self.Niz[j]
+                k = j - h
+                while((k >= 0) and (self.Niz[k] > privremeni)):
+                    self.Niz[k+h] = self.Niz[k]
+                    k = k-h
+                self.Niz[k+h] = privremeni
+        
+        print("Lista sortirana za " + str(time.time() - start_time) + " sekundi")
+
+
+U mainu :import zadatak 
+
+k = 235
+Lista = zadatak.prosirenoSortiranjeNizListe(k)
+
+case 17:
+             Lista.modificiraniShellSort()
+--------------------------------------------------------------------------------------------------------------------
+
+# Donald SHELL Sort #
+
+
+   def shellSort(self):
+        start_time = time.time()
+        
+        ListaRazmaka = [7,3,1]                # Lista razmaka
+
+        for i in range(0,3):                  # Uzima razmak iz liste
+            h = ListaRazmaka[i]            
+            for j in range(h, self.duzina):   # Selection sort grupe
+                privremeni = self.Niz[j]
+                k = j - h
+                while((k >= 0) and (self.Niz[k] > privremeni)):
+                    self.Niz[k+h] = self.Niz[k]
+                    k = k-h
+                self.Niz[k+h] = privremeni
+        
+        print("Lista sortirana za " + str(time.time() - start_time) + " sekundi")
+
+print("12. Shell sort")
+
+case 12:
+        Lista.shellSort()
+
+--------------------------------------------------------------------------------------------------------------------
+
+class prosirenoSortiranjeNizListe(pySortiranja.pySortiranjeNizListe):
+
+# SELECTION Sort 
+    def selectionSort(self):
+        start_time = time.time()
+        
+        if (self.duzina <= 0):
+            print("Nema elemenata za sortiranje! Lista je prazna!")
+        else:
+            for i in range(0,self.duzina-1):
+                minimalni = self.Niz[i]
+                pozcijaminimalnog = i
+                                
+                for j in range(i+1,self.duzina):             # Pronalazak minimalnog elementa
+                    if(self.Niz[j] < minimalni):
+                        minimalni = self.Niz[j]
+                        pozcijaminimalnog = j
+                
+                self.Niz[pozcijaminimalnog] = self.Niz[i]    # Korigujemo pozicije
+                self.Niz[i] = minimalni
+           
+        print("Lista sortirana za " + str(time.time() - start_time) + " sekundi")
+
+print("13. Selection sort")
+
+case 13:
+     Lista.selectionSort()
+--------------------------------------------------------------------------------------------------------------------
+
+class prosirenoSortiranjeNizListe(pySortiranja.pySortiranjeNizListe):
+
+
+# INSERTION Sort 
+    def insertionSort(self):
+        start_time = time.time()
+        
+        for i in range (1, self.duzina):
+            privremeni = self.Niz[i]
+            j = i -1
+            while ((j>= 0) and (self.Niz[j]>privremeni)):  # Poređenje sa sljedećim u listi i zamjena mjesta ukoliko je isti manji od trenutnog minimalnog(Pomjera se lijevo manji element)
+                self.Niz[j+1] = self.Niz[j]
+                j = j-1
+            self.Niz[j+1]=privremeni
+        
+        print("Lista sortirana za " + str(time.time() - start_time) + " sekundi")
+
+
+print("11. Insertion sort")
+
+  case 11:            
+            Lista.insertionSort()
+
+-----------------------------------------------------------------------------------------------------------------
+
+class prosirenoSortiranjeNizListe(pySortiranja.pySortiranjeNizListe):
+
+# BUBBLE Sort #
+
+    def bubbleSort(self):
+        start_time = time.time()
+        
+        for i in range(self.duzina-1,0,-1):
+            for j in range(1,i+1):
+                if(self.Niz[j-1] > self.Niz[j]):
+                    privremeni = self.Niz[j-1]
+                    self.Niz[j-1]=self.Niz[j]
+                    self.Niz[j] = privremeni
+
+        print("Lista sortirana za " + str(time.time() - start_time) + " sekundi")
+
+print("14. Bubble sort")
+
+     case 14:
+             Lista.bubbleSort()
+
+----------------------------------------------------------------------------------------------------------------
+
+# MERGE Sort #
+    def Merge(self, l, p , q, u):        
+        # Forsiramo int tip podataka za indekse u nizovima
+        l = int(l)
+        p = int(p)
+        q = int(q)
+        u = int(u)
+        
+        i = 0
+        j = q-l
+        k = l
+        
+        B = self.kreiraj_niz(u-l+1)
+        for m in range(0,u-l+1):
+            B[m] = self.Niz[l+m]
+        
+        while ((i <= p-l) and (j <= u-l)):
+            if(B[i] < B[j]):
+                self.Niz[k] = B[i]
+                i+=1                
+            else:
+                self.Niz[k] = B[j]
+                j+=1                
+            k+=1
+
+        while(i <= p-l):            
+            self.Niz[k] = B[i]
+            k+=1
+            i+=1
+
+        while(j <= u-l):           
+            self.Niz[k] = B[j]
+            k+=1
+            j+=1
+
+        del B
+
+    # Merge Sort rekurzivno
+    def MergeSort(self,l,u):
+        # Forsiramo int tip podataka za indekse u nizovima
+        l = int(l)
+        u = int(u)
+
+        if (u > l):
+            p = (l+u-1)/2
+            q = p + 1
+            self.MergeSort(l,p)
+            self.MergeSort(q,u)
+            self.Merge(l,p,q,u)
+
+    # Popuni listu nizom slučajnih brojeva
+    def popuniListuRand(self): 
+        for i in range(1,self.kapacitet):        
+            self.dodaj(random.randint(1,1000))
+
+
+print("15. Merge sort")
+print("16. Popuni listu test nizom brojeva")
+
+
+ case 15:
+            Lista.MergeSort(0, Lista.duzina-1)
+            print("Sortirano!")
+ case 16:
+            Lista.popuniListuRand()

@@ -1,0 +1,13 @@
+import pyGomile
+
+class prosirena(pyGomile.Gomila):
+
+    def modifikovanaUmetniUGomilu(self, x):
+        if (self.velicina > self.kapacitet-1):
+            print("Gomila je puna")
+        else:                                   
+            self.elementi[self.velicina] = x+1
+            self.velicina = self.velicina + 1 
+            self.popraviGore(self.velicina-1)            
+            print("Vrijednost " + str(x) + " uvecana za 1 umetnuta u gomilu!")
+

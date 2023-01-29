@@ -1,0 +1,9 @@
+import pyRekurzivneNizListe
+
+class prosirena(pyRekurzivneNizListe.pyRekurzivneNizLista):
+
+    def SumaElemenata(self, n):
+        if n <= 0:
+            return int(self.Niz[n])
+        else:
+            return int(self.Niz[n])+int(self.SumaElemenata(n-1))

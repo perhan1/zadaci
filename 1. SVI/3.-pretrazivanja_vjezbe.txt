@@ -1,0 +1,59 @@
+#Modifikovana metoda binarnoPretraživanje -> ModifikovanoBinarnoPretraživanje - izbacuje maksimalan element u sortiranom nizu
+    def ModifikovanoBinarnoPretraživanje(self):
+        if(self.duzina == 0):
+            print("Niz je prazan.")
+        else:
+            vrh = self.duzina - 1
+            self.tekuci = vrh
+            self.izbaci()
+        print("Maksimalan element je uklonjen.")
+
+print("20. Izbaci maksimalan element u sortiranom nizu")
+
+case 20:
+            Lista.ModifikovanoBinarnoPretraživanje()
+-------------------------------------------------------------------------
+ def sekvencijalnoPretrazivanje(self, kljuc):
+        i = 0
+        while(i < self.duzina):
+            if(self.Niz[i] == kljuc):
+                print("Tražena vrijednost " + str(kljuc) + " se nalazi na poziciji: " + str(i))
+                return None
+            else:
+                i += 1
+                print("Ispitivanje "+ str(i)+"!\n")
+        # U slučaju kada pretraga dođe do kraja liste, a element ne bude pronađen, while petlja će se prekinuti na način da se indeks i poveća na duzina + 1, što je raspon izvan definiranog niza
+        if(i == self.duzina):                                                       
+            print("Tražena vrijednost " + str(kljuc) + " nije pronađena!")
+
+print("11. *Sekvencijalno pretrazivanje niza")
+
+case 11:
+            kljuc = input("Unesite ključnu vrijednost za pretragu!\n")
+            Lista.sekvencijalnoPretrazivanje(kljuc)
+-----------------------------------------------------------------------------------
+ def interpolacijskoPretrazivanje(self,kljuc):
+        vrh = self.duzina - 1           
+        dno = 0                         
+        while (vrh > dno):
+            srednji = int(dno+((vrh-dno)*(kljuc-self.Niz[dno]))/(self.Niz[vrh]-self.Niz[dno]))              
+            print("Srednji: " + str(srednji))
+            if(srednji > self.duzina):                                                                      
+                print("Index izvan raspona! Tražena vrijednost " + str(kljuc) + " nije pronađena!")
+                return None
+            if(kljuc == self.Niz[srednji]):
+                print("Tražena vrijednost " + str(kljuc) + " se nalazi na poziciji: " + str(srednji))
+                return None
+            elif(self.Niz[srednji] < kljuc):
+                dno = srednji + 1       
+                print("Dno: " + str(dno))
+            else:
+                vrh = srednji - 1       
+                print("Vrh: " + str(vrh))
+        print("Tražena vrijednost " + str(kljuc) + " nije pronađena!")
+
+print("15. *Interpolacijsko pretrazivanje niza")
+
+case 15:
+            kljuc = input("Unesite ključnu vrijednost za pretragu!\n")
+            Lista.interpolacijskoPretrazivanje(int(kljuc))   

@@ -1,0 +1,26 @@
+def modificiraniShellSort(self):
+        start_time = time.time()
+        
+        ListaRazmaka = []                    
+
+        temp = self.duzina                       
+
+        while True:                                   
+            temp = int(temp/5)
+            if(temp) < 1:
+                break
+            ListaRazmaka.append(temp)                           
+
+        print("Koristeni razmaci su:" + str(ListaRazmaka))               
+
+        for i in range(0,len(ListaRazmaka)):  
+            h = ListaRazmaka[i]            
+            for j in range(h, self.duzina):   
+                privremeni = self.Niz[j]
+                k = j - h
+                while((k >= 0) and (self.Niz[k] > privremeni)):
+                    self.Niz[k+h] = self.Niz[k]
+                    k = k-h
+                self.Niz[k+h] = privremeni
+        
+        print("Lista sortirana za " + str(time.time() - start_time) + " sekundi")

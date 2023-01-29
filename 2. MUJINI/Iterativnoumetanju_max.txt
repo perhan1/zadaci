@@ -1,0 +1,11 @@
+import pyBSP
+
+
+class prosirean(pyBSP.BSP):
+
+    def umetnimaxPr(self, korijen):
+        maksimalan = self.maxCvor(korijen)
+        noviclan = maksimalan.element-1
+        self.umetniIterativno(noviclan)
+        print("\nPreorder:")
+        self.preorder(korijen)

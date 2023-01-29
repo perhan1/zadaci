@@ -1,0 +1,23 @@
+import pyNizListe					  |   # Ispis permutacija elemenata
+class pyRekurzivneNizLista(pyNizListe.NizLista):          |    def IspisiPermutacije(self, k ):
+    def zamijeniti(self, i , j):			  |	    if k == self.duzina - 1:
+        priv = self.Niz[i]				  |		self.prikazi()
+        self.Niz[i] = self.Niz[j]			  |	    else:
+        self.Niz[j] = priv				  |	        for i in range(k,self.duzina):
+-----------------------------------------------------------                  self.zamijeniti(k,i)
+    # Faktorijel novounesenog tekuceg elementa            |                  self.IspisiPermutacije(k+1)
+    def tekuciFaktorijel(self, x):			  |                  self.zamijeniti(k,i)
+        if x <= 1:					  |
+            return 1					  |------------------------------------------------------
+        else: 						  |	 def suma(self, i):
+            return (x*self.tekuciFaktorijel(x-1))         |		if(i==0):
+--------------------------------------------------------------		     return 0
+    # Ispis permutacije elementa od pozicije k do pozicije m |		else:
+    def IspisiPermutacijeKdoM(self, k, m ):		     |		     return int(i+self.suma(i-1))
+        if k == m:					     |	
+            self.prikazi()				     |
+        else:						     |
+            for i in range(k,m):                             |
+                self.zamijeniti(k,i)                         |
+                self.IspisiPermutacijeKdoM(k+1,m)            |
+                self.zamijeniti(k,i)                         |

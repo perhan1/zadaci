@@ -1,0 +1,38 @@
+    def duzina(self):
+        if (self.pocetak == -1):
+            return 0
+        else:
+            return ((self.kraj + self.kapacitet) - self.pocetak) % self.kapacitet + 1
+-----------------------------------------------------------------------------------------
+    def dodajURed(self,x):
+        if(self.jeLiPun()):
+            print("Red je pun! Nemoguće je dodatni nove elemente.")
+        else:
+            self.kraj = (self.kraj + 1) % self.kapacitet
+            self.Niz[self.kraj] = x
+            if(self.pocetak == -1):  # Ukoliko je Red bio prazan, potrebno je i promjeniti pokazivač početak
+                self.pocetak = 0
+            print("Element vrijednosti " + str(x) + " je dodan u red.")
+--------------------------------------------------------------------------------------------
+    # Izbacivanje elemenata siz rada (FIFO)
+    def izbaciIzReda(self):
+        if(self.jeLiPrazan()):
+            print("Red je prazan! Nema elemenata za izbacivanje!")
+        else:
+            x = self.Niz[self.pocetak]           
+            if (self.pocetak == self.kraj):     # samo jedan element u redu
+                self.pocetak = self.kraj = -1   # prazan red
+            else:
+                self.pocetak = (self.pocetak + 1) % self.kapacitet
+            print("Element vrijednosti " + x + " je izbačen iz reda.") 
+-----------------------------------------------------------------------------------------------
+    def mini(self):
+        min = self.Niz[0]
+        i = self.pocetak
+        while True:
+            if(int(self.Niz[i]) < int(min)):
+                min = self.Niz[i]
+            i = (i +1) % self.kapacitet
+            if (i == (self.kraj + 1) % self.kapacitet):
+                break
+        print("Min element niza je:" + str(min))

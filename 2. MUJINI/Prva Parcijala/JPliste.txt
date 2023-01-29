@@ -1,0 +1,43 @@
+def izbaci(self):
+        if (self.dduzina <= 0):
+            print("Nema elemenata za izbacivanje/brisanje! Tekući na kraju liste!")
+        privremen = Cvor()
+        if(self.lduzina == 0):                         
+            privremin = self.pocetak
+            self.pocetak = privremin.sljedeci
+            print("Izvršeno je izbacivanje elementa!")
+        else:
+           privremen = self.tekuci.sljedeci             
+           self.tekuci.sljedeci = privremen.sljedeci
+           print("izvršeno je izbacivanje elementa!")
+        if(self.dduzina == 1):                          
+            self.kraj = self.tekuci
+        self.dduzina -= 1
+--------------------------------------------------------------------------------------
+def umetni(self, x):
+        privremin = Cvor(x)
+        if (self.lduzina == 0):
+            privremin.sljedeci = self.pocetak
+            self.pocetak = privremin
+            if(self.lduzina+self.dduzina == 0):
+                self.kraj = privremin
+            print("Uspješno umetnut element " + str(x) + " na početak liste")
+        else:
+            privremin.sljedeci = self.tekuci.sljedeci
+            self.tekuci.sljedeci = privremin
+            if(self.dduzina == 0):
+                self.kraj = self.tekuci.sljedeci #privremeni
+            print("Uspješno umetnut element " + str(x) + " na poziciju pokazivača " + str(self.tekuci))        
+        self.dduzina += 1
+----------------------------------------------------------------------------------------------------------
+  def dodaj(self, x):
+        novicvor = Cvor(x)
+        if(self.dduzina+self.lduzina == 0):     
+            self.pocetak = novicvor
+            self.kraj = novicvor
+            print("Lista je bila prazna. Početak i kraj liste su sada isti novi čvor!")
+        else:                                   
+            self.kraj.sljedeci = novicvor       
+            self.kraj = novicvor                
+            print("Uspješno dodan element na kraj liste!")
+        self.dduzina += 1
