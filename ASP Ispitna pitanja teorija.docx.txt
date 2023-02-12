@@ -29,7 +29,8 @@ Ako se u funkciji nalazi više od jednog poziva rekurzivne funkcije, onda takve 
 
 OPISATI REKURZIVNU FUNKCIJU IZBOR (n,k) ZA ODREĐIVANJE K ELEMENATA IZ SKUPA N
 ------------------------------------------------------------------------------
-Rekurzivne funkcije ponekada sadrže više od jednog rekurzivnog poziva. Ako se izvršavanjem funkcije ostvaruju dva rekurzivna poziva, onda takve funkcije nazivamo binarne rekurzivne funkcije. Primjer binarne rekurzije možemo ilustrirati, na primjer, određivanjem podskupova sa k elemenata (k kombinacija) iz skupa sa n elemenata. Broj takvih kombinacija je:
+Rekurzivne funkcije ponekada sadrže više od jednog rekurzivnog poziva. Ako se izvršavanjem funkcije ostvaruju dva rekurzivna poziva, onda takve funkcije nazivamo
+binarne rekurzivne funkcije. Primjer binarne rekurzije možemo ilustrirati, na primjer, određivanjem podskupova sa k elemenata (k kombinacija) iz skupa sa n elemenata. Broj takvih kombinacija je:
 (n,k)=(n!)/(k!(n-k)!
 
 
